@@ -10,7 +10,7 @@ Este projeto é uma doação a comunidade, uma ação
 que eu julgo benéfica para os iniciantes em programação
 Sintam-se a vontade para modificar o projeto como bem entenderem
 Podem tambem compilar o projeto para fins comerciais (Sim, eu
-AUTORIZO o uso deste projeto para ganhar dinheiro, caso queiram)
+AUTORIZO o uso deste projeto para ganhar dinheiro $$$, caso queiram)
 
 Não me responsabilizo por bugs, inconsistencias ou falta de recursos
 presentes no código até esta data (30/11/2018 10:00:00)
@@ -19,7 +19,7 @@ presentes no código até esta data (30/11/2018 10:00:00)
 Este projeto é desenvolvido sobre plataforma Microsoft, portanto,
 compatível com Windows.
 Ele também podem funcionar em Linux através do Mono ou emulando através
-do Wine (tambem não me responsabilizo por isso nem irem ajudar a faze-lo, pois
+do Wine (tambem não me responsabilizo por isso nem irei ajudar a faze-lo, pois
 existem diversos tutoriais no YouTube ensinando o mesmo)
 
 A arquitertura do programa está configurada para "Any CPU", ou seja,
