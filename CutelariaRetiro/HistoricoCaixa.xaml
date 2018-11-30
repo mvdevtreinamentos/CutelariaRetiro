@@ -1,0 +1,28 @@
+﻿<Window x:Class="CutelariaRetiro.HistoricoCaixa"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CutelariaRetiro"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Title="Cutelaria Retiro" Height="437.867" Width="579.6">
+    <Grid>
+        <TextBox x:Name="txConteudo" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" AcceptsTab="True" IsReadOnly="True" Margin="218,0,0,0" TextWrapping="Wrap" BorderThickness="1,0,0,0" Padding="20,0" FontSize="15" FontFamily="Segoe UI Semibold"/>
+        <Label x:Name="label" Content="Pesquisar Data" HorizontalAlignment="Left" Margin="6,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txDia" HorizontalAlignment="Left" Height="24" Margin="10,58,0,0" TextWrapping="Wrap" Text="01" VerticalAlignment="Top" Width="38"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,41,0,0" TextWrapping="Wrap" Text="Dia" VerticalAlignment="Top" RenderTransformOrigin="0.471,0.531"/>
+        <TextBox x:Name="txMes" HorizontalAlignment="Left" Height="24" Margin="53,58,0,0" TextWrapping="Wrap" Text="01" VerticalAlignment="Top" Width="38"/>
+        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="53,41,0,0" TextWrapping="Wrap" Text="Mês" VerticalAlignment="Top" RenderTransformOrigin="0.471,0.531"/>
+        <TextBox x:Name="txAno" HorizontalAlignment="Left" Height="24" Margin="96,58,0,0" TextWrapping="Wrap" Text="2018" VerticalAlignment="Top" Width="51"/>
+        <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="96,41,0,0" TextWrapping="Wrap" Text="Ano" VerticalAlignment="Top" RenderTransformOrigin="0.471,0.531" Width="37"/>
+        <ListBox x:Name="listBox" SelectionChanged="listBox_SelectionChanged" HorizontalAlignment="Left" Margin="0,87,0,0" Width="218" BorderThickness="0"/>
+        <Button x:Name="btBuscar" Style="{StaticResource btConfirm}" Content="Buscar" HorizontalAlignment="Left" Margin="152,58,0,0" VerticalAlignment="Top" Width="61" Height="24" Click="btBuscar_Click"/>
+        <Button x:Name="button" Style="{StaticResource btNormal}" Content="+" HorizontalAlignment="Right" Margin="0,0,184,10" VerticalAlignment="Bottom" Width="29" Click="button_Click"/>
+        <Button x:Name="button_Copy" Style="{StaticResource btNormal}" Content="-" HorizontalAlignment="Right" Margin="0,0,150,10" VerticalAlignment="Bottom" Width="29" Click="button_Copy_Click"/>
+        <Button x:Name="button_Copy1" Style="{StaticResource btNormal}" Content="Exportar" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="65" Click="button_Copy1_Click"/>
+        <Button x:Name="button_Copy2" Style="{StaticResource btNormal}" Content="Imprimir" HorizontalAlignment="Right" Margin="0,0,80,10" VerticalAlignment="Bottom" Width="65" Click="button_Copy2_Click"/>
+
+    </Grid>
+</Window>

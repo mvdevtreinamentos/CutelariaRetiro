@@ -1,0 +1,29 @@
+﻿<Window x:Class="CutelariaRetiro.CadMateriais"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CutelariaRetiro"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Title="Cutelaria Retiro" Height="372" Width="588">
+    <Grid>
+        <Label x:Name="label5" Content="Cadastro de materiais" HorizontalAlignment="Left" Margin="10,3,0,0" VerticalAlignment="Top" Width="200" FontSize="17" FontFamily="Segoe UI Semibold"/>
+        <ListBox x:Name="listBox" SelectionChanged="listBox_SelectionChanged" HorizontalAlignment="Left" Margin="0,64,0,0" Width="215" BorderBrush="White"/>
+        <TextBox x:Name="txPesquisa" TextChanged="txPesquisa_TextChanged" HorizontalAlignment="Left" Height="23" Margin="71,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139"/>
+        <Border BorderBrush="#FF707070" BorderThickness="1" HorizontalAlignment="Left" Margin="215,0,0,0" Width="1"/>
+        <Label x:Name="label" Content="Referência" HorizontalAlignment="Left" Margin="224,10,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="txReferencia" HorizontalAlignment="Left" Height="23" Margin="304,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" TabIndex="1"/>
+        <Label x:Name="label_Copy" Content="Descrição" HorizontalAlignment="Left" Margin="224,37,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="txDescricao" Height="23" Margin="304,40,14,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="2"/>
+        <Label x:Name="label_Copy1" Content="Preço (R$)" HorizontalAlignment="Left" Margin="224,65,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="txPreco" HorizontalAlignment="Left" Height="23" Margin="304,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" Text="0,00" TabIndex="3"/>
+        <Button x:Name="btNovo" Content="Novo" HorizontalAlignment="Right" Margin="0,0,271,10" VerticalAlignment="Bottom" Width="81" Height="22" Style="{DynamicResource btNormal}" Click="btNovo_Click" TabIndex="7"/>
+        <Button x:Name="btSalvar" Content="Salvar" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="81" Height="22" Style="{DynamicResource btConfirm}" Click="btSalvar_Click" TabIndex="5"/>
+        <Button x:Name="btExcluir" Content="Excluir" HorizontalAlignment="Right" Margin="0,0,185,10" VerticalAlignment="Bottom" Width="81" Height="22" Style="{DynamicResource btCaution}" Click="btExcluir_Click" TabIndex="6"/>
+        <CheckBox x:Name="ckInativo" Content="Material Inativo" HorizontalAlignment="Left" Margin="304,96,0,0" VerticalAlignment="Top" Width="190" TabIndex="4"/>
+        <Label x:Name="lbPesquisa" Content="Pesquisa" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

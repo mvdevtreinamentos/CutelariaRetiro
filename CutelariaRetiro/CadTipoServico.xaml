@@ -1,0 +1,31 @@
+﻿<Window x:Class="CutelariaRetiro.CadTipoServico"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CutelariaRetiro"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Title="Cutelaria Retiro" Height="365.5" Width="603.333">
+    <Grid>
+        <Label x:Name="label" Content="Nome" HorizontalAlignment="Left" Margin="258,37,0,0" VerticalAlignment="Top" Width="42"/>
+        <Label x:Name="label_Copy" Content="Preço (R$)" HorizontalAlignment="Left" Margin="258,65,0,0" VerticalAlignment="Top" Width="64"/>
+        <TextBox x:Name="txNome" Height="23" Margin="326,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="205" TabIndex="2"/>
+        <TextBox x:Name="txPreco" HorizontalAlignment="Left" Height="23" Margin="326,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Text="0,00" TabIndex="3"/>
+        <Label x:Name="label_Copy1" Content="Código" HorizontalAlignment="Left" Margin="258,9,0,0" VerticalAlignment="Top" Width="48"/>
+        <TextBox x:Name="txCodigo" HorizontalAlignment="Left" Height="23" Margin="326,12,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="57" TabIndex="1"/>
+        <Grid HorizontalAlignment="Left" Width="244" Background="White">
+            <TextBox x:Name="txPesquisa" TextChanged="txPesquisa_TextChanged" Height="20" Margin="71,39,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="White"/>
+            <ListBox x:Name="listBox" SelectionChanged="listBox_SelectionChanged" Margin="0,64,0,0" BorderBrush="White"/>
+            <Label x:Name="label5" Content="Cadastro de Tipo de Serviço" HorizontalAlignment="Left" Margin="10,3,0,0" VerticalAlignment="Top" Width="234" FontSize="17" FontFamily="Segoe UI Semibold"/>
+            <Label x:Name="label1" Content="Pesquisa" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top"/>
+        </Grid>
+        <Border BorderBrush="#FF9C9C9C" BorderThickness="1" HorizontalAlignment="Left" Margin="244,0,0,0" Width="1"/>
+        <Border BorderBrush="#FFC1C1C1" BorderThickness="1" Margin="245,0,0,31" Height="1" VerticalAlignment="Bottom"/>
+        <Button x:Name="btNovo" Content="Novo" HorizontalAlignment="Right" Margin="0,0,272,5" VerticalAlignment="Bottom" Width="63" Height="21" Style="{DynamicResource btNormal}" Click="btNovo_Click" TabIndex="6"/>
+        <Button x:Name="btSalvar" Content="Salvar" HorizontalAlignment="Right" Margin="0,0,7,5" VerticalAlignment="Bottom" Width="70" Height="21" Style="{DynamicResource btConfirm}" Click="btSalvar_Click" TabIndex="4"/>
+        <Button x:Name="btExcluir" Content="Excluir" HorizontalAlignment="Right" Margin="0,0,185,5" VerticalAlignment="Bottom" Width="82" Height="21" Style="{DynamicResource btCaution}" Click="btExcluir_Click" TabIndex="4"/>
+
+    </Grid>
+</Window>

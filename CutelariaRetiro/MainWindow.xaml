@@ -1,0 +1,71 @@
+﻿<Window x:Class="CutelariaRetiro.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CutelariaRetiro"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+      
+        Title="Cutelaria Retiro" Height="505.5" Width="781">
+    <Grid Background="#FFFFE8B7">
+        <Grid HorizontalAlignment="Left" Width="369" Background="#FFF9F9F9" Margin="0,54,0,0">
+            <Label x:Name="label" Content="Serviços em andamento" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe WP Semibold" Width="228"/>
+            <TextBox x:Name="txPesquisa" KeyDown="txPesquisa_KeyDown" Height="23" Margin="67,51,5,0" TextWrapping="NoWrap" VerticalAlignment="Top"/>
+            <Label x:Name="label1" Content="Pesquisa" HorizontalAlignment="Left" Margin="5,49,0,0" VerticalAlignment="Top" Width="57"/>
+            <Border BorderBrush="#FF7B9FFF" BorderThickness="1" HorizontalAlignment="Left" Margin="10,100,0,10" Width="354">
+                <ScrollViewer HorizontalAlignment="Left" Margin="4,3,0,4" Width="344">
+                    <StackPanel x:Name="spServicos" />
+                </ScrollViewer>
+            </Border>
+            <Button x:Name="btNovoAtendimento" Style="{StaticResource btNormal}" Content="Novo Atendimento" Margin="10,77,5,0" VerticalAlignment="Top" Click="btNovoAtendimento_Click"/>
+        </Grid>
+        <Border BorderBrush="#FFBBBBBB" BorderThickness="1" HorizontalAlignment="Left" Margin="369,54,0,0" Width="1"/>
+        <Label x:Name="label_Copy" Content="Caixa" HorizontalAlignment="Left" Margin="379,60,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe WP Semibold" Width="267"/>
+        <Label x:Name="label2" Content="(+) Saldo Inicial:" Margin="378,107,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="150" FontFamily="Segoe UI Semibold"/>
+        <Label x:Name="label2_Copy" Content="(+) Entradas no caixa" Margin="378,138,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="130" FontFamily="Segoe UI Semibold"/>
+        <Label x:Name="label3" Content="Dinheiro" HorizontalAlignment="Left" Margin="419,169,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label3_Copy" Content="Cartão" HorizontalAlignment="Left" Margin="419,195,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label2_Copy1" Content="(-) Saídas no caixa" Margin="378,280,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="130" FontFamily="Segoe UI Semibold"/>
+        <Label x:Name="label2_Copy2" Content="(=) Saldo final" Margin="378,335,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="130" FontFamily="Segoe UI Semibold"/>
+        <Label x:Name="lbTotalDinheiro" Content="R$ 56,00" HorizontalAlignment="Right" Margin="0,169,13,0" VerticalAlignment="Top" Width="75" HorizontalContentAlignment="Right"/>
+        <Label x:Name="lbTotalCartao" Content="R$ 10,00" HorizontalAlignment="Right" Margin="0,195,13,0" VerticalAlignment="Top" Width="75" HorizontalContentAlignment="Right"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Right" Height="1" Margin="0,221,13,0" VerticalAlignment="Top" Width="341"/>
+        <Label x:Name="label3_Copy1" Content="Total" HorizontalAlignment="Left" Margin="419,223,0,0" VerticalAlignment="Top" Width="100"/>
+        <Label x:Name="lbTotalEntradas" Content="R$ 66,00" HorizontalAlignment="Right" Margin="0,223,13,0" VerticalAlignment="Top" Width="75" HorizontalContentAlignment="Right"/>
+        <Label x:Name="lbSaldoInicial" Content="R$ 10,00" Margin="0,107,13,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="150" FontFamily="Segoe UI Semibold" HorizontalContentAlignment="Right"/>
+        <Label x:Name="label3_Copy2" Content="Somente dinheiro" HorizontalAlignment="Left" Margin="419,362,0,0" VerticalAlignment="Top" Width="109"/>
+        <Label x:Name="lbTotalGeralDinheiro" Content="R$ 66,00" HorizontalAlignment="Right" Margin="0,362,13,0" VerticalAlignment="Top" Width="136" HorizontalContentAlignment="Right"/>
+        <Label x:Name="label2_Copy5" Content="Tudo" Margin="419,388,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="150" FontFamily="Segoe UI Semibold"/>
+        <Label x:Name="lbTotalGeralTudo" Content="R$ 76,00" Margin="0,388,13,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="150" FontFamily="Segoe UI Semibold" HorizontalContentAlignment="Right"/>
+        <Grid Height="37" VerticalAlignment="Top" Background="#FFF1F1F1" Margin="0,22,0,0">
+            <Label x:Name="label5" Content="Cutelaria Retiro - Serviços" HorizontalAlignment="Left" Margin="10,3,0,0" VerticalAlignment="Top" Width="220" FontSize="17" FontFamily="Segoe UI Semibold"/>
+            <Border BorderBrush="#FFB8B8B8" BorderThickness="1" Height="1" VerticalAlignment="Bottom"/>
+        </Grid>
+        <Button x:Name="btAbrirFecharCaixa" Style="{StaticResource btNormal}" Content="Abrir Caixa" HorizontalAlignment="Right" Margin="0,66,12,0" VerticalAlignment="Top" Width="91" Click="btAbrirFecharCaixa_Click"/>
+        <Button x:Name="btRetidadaCaixa" Style="{StaticResource btNormal}" Content="Retirada" HorizontalAlignment="Right" Margin="0,306,12,0" VerticalAlignment="Top" Width="76" Click="btRetidadaCaixa_Click"/>
+        <Label x:Name="lbTotalRetirada" Content="R$ 10,00" Margin="0,280,13,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="150" FontFamily="Segoe UI Semibold" HorizontalContentAlignment="Right"/>
+        <Menu x:Name="menu" FontSize="15" Height="22" VerticalAlignment="Top" Background="#FFFBFBFB">
+            <MenuItem Header="Arquivo">
+                <MenuItem Header="Cadastros" >
+                    <MenuItem x:Name="menuMateriais" Header="Materiais" Click="menuMateriais_Click" />
+                    <MenuItem x:Name="menuTiposServico" Header="Tipos de Serviço" Click="menuTiposServico_Click" />
+                </MenuItem>
+
+                <MenuItem Header="Histórico" >
+                    <MenuItem Header="Caixa" x:Name="btHistoricoCaixa" Click="btHistoricoCaixa_Click" />
+                    <MenuItem Header="Serviços" />
+                </MenuItem>
+
+                <MenuItem Header="Estoque">
+                    <MenuItem x:Name="menuGerenciaEstoque" Click="menuGerenciaEstoque_Click"  Header="Gerenciar Estoque"/>
+                </MenuItem>
+
+                <MenuItem Header="Atendimento">
+                    <MenuItem Header="Novo Atendimento" x:Name="menuAtendimento" Click="menuAtendimento_Click" />
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+
+    </Grid>
+</Window>

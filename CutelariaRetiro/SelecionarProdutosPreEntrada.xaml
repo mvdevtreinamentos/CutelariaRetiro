@@ -1,0 +1,24 @@
+﻿<Window x:Class="CutelariaRetiro.SelecionarProdutosPreEntrada"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CutelariaRetiro"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Title="SelecionarProdutosPreEntrada" Height="553.2" Width="588.14">
+    <Grid>
+        <Label x:Name="label" Content="Criar lista de entrada de estoque" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe WP Semibold" Width="306"/>
+        <ListBox x:Name="listMateriais" HorizontalAlignment="Left" Margin="0,113,0,0" Width="247"/>
+        <TextBox x:Name="txPesquisa" TextChanged="txPesquisa_TextChanged" HorizontalAlignment="Left" Height="23" Margin="10,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237"/>
+        <Label x:Name="label1" Content="Pesquisar Material" HorizontalAlignment="Left" Margin="10,59,0,0" VerticalAlignment="Top" Width="112"/>
+        <Button x:Name="button" FontSize="14" FontWeight="Bold" Style="{StaticResource btNormal}" Content="&gt;" Margin="252,154,253,0" VerticalAlignment="Top" Height="24" Click="button_Click"/>
+        <Button x:Name="button_Copy" FontSize="14" FontWeight="Bold" Style="{StaticResource btNormal}" Content="&gt;&gt;" Margin="252,183,253,0" VerticalAlignment="Top" Height="24" Click="button_Copy_Click"/>
+        <Button x:Name="button_Copy1" FontSize="14" FontWeight="Bold" Style="{StaticResource btNormal}" Content="&lt;" Margin="252,220,253,0" VerticalAlignment="Top" Height="24" Click="button_Copy1_Click"/>
+        <Button x:Name="button_Copy2" FontSize="14" FontWeight="Bold" Style="{StaticResource btNormal}" Content="&lt;&lt;" Margin="252,249,253,0" VerticalAlignment="Top" Height="24" Click="button_Copy2_Click"/>
+        <ListBox x:Name="listMateriaisEntradas" Margin="0,113,0,0" HorizontalAlignment="Right" Width="247"/>
+        <Button x:Name="btExportar" Style="{StaticResource btNormal}" Content="Exportar lista" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="116" Click="btExportar_Click"/>
+
+    </Grid>
+</Window>

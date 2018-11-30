@@ -1,0 +1,16 @@
+﻿<Window x:Class="CutelariaRetiro.HistoricoServico"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CutelariaRetiro"
+        mc:Ignorable="d"
+        Title="HistoricoServico" Height="500" Width="900">
+    <Grid>
+        <DataGrid x:Name="dataGrid" Margin="10,82,10,0" VerticalAlignment="Top" Height="274"/>
+        <Label x:Name="lbTitulo" Content="Histórico de serviços" HorizontalAlignment="Left" Margin="10,2,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe WP Semibold" Width="366"/>
+        <Label x:Name="label" Content="Localizar" HorizontalAlignment="Left" Margin="10,51,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="71,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82"/>
+
+    </Grid>
+</Window>

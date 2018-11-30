@@ -1,0 +1,531 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Caixa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DataAbertura" Type="datetime" Nullable="false" />
+          <Property Name="DataFechamento" Type="datetime" />
+          <Property Name="Aberto" Type="bit" Nullable="false" />
+          <Property Name="Obs" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EntradaMaterial">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaterialId" Type="int" Nullable="false" />
+          <Property Name="Data" Type="datetime" Nullable="false" />
+          <Property Name="Quantidade" Type="int" Nullable="false" />
+          <Property Name="Obs" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Lote" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ItemServico">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ServicoId" Type="int" Nullable="false" />
+          <Property Name="TipoServicoId" Type="int" Nullable="false" />
+          <Property Name="Quantidade" Type="numeric" Precision="10" Scale="3" Nullable="false" />
+          <Property Name="ValorUnit" Type="numeric" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Total" Type="numeric" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Observacoes" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Referencia" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="Descricao" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Inativo" Type="bit" Nullable="false" />
+          <Property Name="Preco" Type="numeric" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Estoque" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MaterialServico">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ServicoId" Type="int" Nullable="false" />
+          <Property Name="MaterialId" Type="int" Nullable="false" />
+          <Property Name="Quantidade" Type="int" Nullable="false" />
+          <Property Name="Preco" Type="numeric" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Total" Type="numeric" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MovimentoCaixa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CaixaId" Type="int" Nullable="false" />
+          <Property Name="Tipo" Type="int" Nullable="false" />
+          <Property Name="ServicoId" Type="int" Nullable="false" />
+          <Property Name="Valor" Type="numeric" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Obs" Type="nvarchar" MaxLength="250" />
+          <Property Name="FormaPagamento" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Servico">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Cliente" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Telefone" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Data" Type="datetime" Nullable="false" />
+          <Property Name="Obs" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Finalizado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoServico">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Preco" Type="numeric" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__EntradaMaterial__000000000000008D">
+          <End Role="Material" Type="Self.Material" Multiplicity="1" />
+          <End Role="EntradaMaterial" Type="Self.EntradaMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EntradaMaterial">
+              <PropertyRef Name="MaterialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ItemServico__0000000000000036">
+          <End Role="Servico" Type="Self.Servico" Multiplicity="1" />
+          <End Role="ItemServico" Type="Self.ItemServico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servico">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ItemServico">
+              <PropertyRef Name="ServicoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ItemServico__000000000000003A">
+          <End Role="TipoServico" Type="Self.TipoServico" Multiplicity="1" />
+          <End Role="ItemServico" Type="Self.ItemServico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoServico">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ItemServico">
+              <PropertyRef Name="TipoServicoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MateriaisServico__00000000000000A2">
+          <End Role="Servico" Type="Self.Servico" Multiplicity="1" />
+          <End Role="MaterialServico" Type="Self.MaterialServico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servico">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MaterialServico">
+              <PropertyRef Name="ServicoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MateriaisServico__00000000000000A6">
+          <End Role="Material" Type="Self.Material" Multiplicity="1" />
+          <End Role="MaterialServico" Type="Self.MaterialServico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MaterialServico">
+              <PropertyRef Name="MaterialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mc_CaixaId">
+          <End Role="Caixa" Type="Self.Caixa" Multiplicity="1" />
+          <End Role="MovimentoCaixa" Type="Self.MovimentoCaixa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Caixa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MovimentoCaixa">
+              <PropertyRef Name="CaixaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="Caixa" EntityType="Self.Caixa" store:Type="Tables" />
+          <EntitySet Name="EntradaMaterial" EntityType="Self.EntradaMaterial" store:Type="Tables" />
+          <EntitySet Name="ItemServico" EntityType="Self.ItemServico" store:Type="Tables" />
+          <EntitySet Name="Material" EntityType="Self.Material" store:Type="Tables" />
+          <EntitySet Name="MaterialServico" EntityType="Self.MaterialServico" store:Type="Tables" />
+          <EntitySet Name="MovimentoCaixa" EntityType="Self.MovimentoCaixa" store:Type="Tables" />
+          <EntitySet Name="Servico" EntityType="Self.Servico" store:Type="Tables" />
+          <EntitySet Name="TipoServico" EntityType="Self.TipoServico" store:Type="Tables" />
+          <AssociationSet Name="FK__EntradaMaterial__000000000000008D" Association="Self.FK__EntradaMaterial__000000000000008D">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="EntradaMaterial" EntitySet="EntradaMaterial" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ItemServico__0000000000000036" Association="Self.FK__ItemServico__0000000000000036">
+            <End Role="Servico" EntitySet="Servico" />
+            <End Role="ItemServico" EntitySet="ItemServico" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ItemServico__000000000000003A" Association="Self.FK__ItemServico__000000000000003A">
+            <End Role="TipoServico" EntitySet="TipoServico" />
+            <End Role="ItemServico" EntitySet="ItemServico" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MateriaisServico__00000000000000A2" Association="Self.FK__MateriaisServico__00000000000000A2">
+            <End Role="Servico" EntitySet="Servico" />
+            <End Role="MaterialServico" EntitySet="MaterialServico" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MateriaisServico__00000000000000A6" Association="Self.FK__MateriaisServico__00000000000000A6">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="MaterialServico" EntitySet="MaterialServico" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mc_CaixaId" Association="Self.FK_Mc_CaixaId">
+            <End Role="Caixa" EntitySet="Caixa" />
+            <End Role="MovimentoCaixa" EntitySet="MovimentoCaixa" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CutelariaRetiroEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Caixa" EntityType="Model.Caixa" />
+          <EntitySet Name="EntradaMaterial" EntityType="Model.EntradaMaterial" />
+          <EntitySet Name="ItemServico" EntityType="Model.ItemServico" />
+          <EntitySet Name="Material" EntityType="Model.Material" />
+          <EntitySet Name="MaterialServico" EntityType="Model.MaterialServico" />
+          <EntitySet Name="MovimentoCaixa" EntityType="Model.MovimentoCaixa" />
+          <EntitySet Name="Servico" EntityType="Model.Servico" />
+          <EntitySet Name="TipoServico" EntityType="Model.TipoServico" />
+          <AssociationSet Name="FK__EntradaMaterial__000000000000008D" Association="Model.FK__EntradaMaterial__000000000000008D">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="EntradaMaterial" EntitySet="EntradaMaterial" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ItemServico__0000000000000036" Association="Model.FK__ItemServico__0000000000000036">
+            <End Role="Servico" EntitySet="Servico" />
+            <End Role="ItemServico" EntitySet="ItemServico" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ItemServico__000000000000003A" Association="Model.FK__ItemServico__000000000000003A">
+            <End Role="TipoServico" EntitySet="TipoServico" />
+            <End Role="ItemServico" EntitySet="ItemServico" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MateriaisServico__00000000000000A6" Association="Model.FK__MateriaisServico__00000000000000A6">
+            <End Role="Material" EntitySet="Material" />
+            <End Role="MaterialServico" EntitySet="MaterialServico" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MateriaisServico__00000000000000A2" Association="Model.FK__MateriaisServico__00000000000000A2">
+            <End Role="Servico" EntitySet="Servico" />
+            <End Role="MaterialServico" EntitySet="MaterialServico" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mc_CaixaId" Association="Model.FK_Mc_CaixaId">
+            <End Role="Caixa" EntitySet="Caixa" />
+            <End Role="MovimentoCaixa" EntitySet="MovimentoCaixa" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Caixa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DataAbertura" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataFechamento" Type="DateTime" Precision="3" />
+          <Property Name="Aberto" Type="Boolean" Nullable="false" />
+          <Property Name="Obs" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MovimentoCaixa" Relationship="Model.FK_Mc_CaixaId" FromRole="Caixa" ToRole="MovimentoCaixa" />
+        </EntityType>
+        <EntityType Name="EntradaMaterial">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaterialId" Type="Int32" Nullable="false" />
+          <Property Name="Data" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Quantidade" Type="Int32" Nullable="false" />
+          <Property Name="Obs" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Material" Relationship="Model.FK__EntradaMaterial__000000000000008D" FromRole="EntradaMaterial" ToRole="Material" />
+          <Property Name="Lote" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ItemServico">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ServicoId" Type="Int32" Nullable="false" />
+          <Property Name="TipoServicoId" Type="Int32" Nullable="false" />
+          <Property Name="Quantidade" Type="Decimal" Nullable="false" Precision="10" Scale="3" />
+          <Property Name="ValorUnit" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="Total" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="Observacoes" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Servico" Relationship="Model.FK__ItemServico__0000000000000036" FromRole="ItemServico" ToRole="Servico" />
+          <NavigationProperty Name="TipoServico" Relationship="Model.FK__ItemServico__000000000000003A" FromRole="ItemServico" ToRole="TipoServico" />
+        </EntityType>
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Referencia" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Descricao" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Inativo" Type="Boolean" Nullable="false" />
+          <Property Name="Preco" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <NavigationProperty Name="EntradaMaterial" Relationship="Model.FK__EntradaMaterial__000000000000008D" FromRole="Material" ToRole="EntradaMaterial" />
+          <NavigationProperty Name="MaterialServico" Relationship="Model.FK__MateriaisServico__00000000000000A6" FromRole="Material" ToRole="MaterialServico" />
+          <Property Name="Estoque" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MaterialServico">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ServicoId" Type="Int32" Nullable="false" />
+          <Property Name="MaterialId" Type="Int32" Nullable="false" />
+          <Property Name="Quantidade" Type="Int32" Nullable="false" />
+          <Property Name="Preco" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="Total" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <NavigationProperty Name="Material" Relationship="Model.FK__MateriaisServico__00000000000000A6" FromRole="MaterialServico" ToRole="Material" />
+          <NavigationProperty Name="Servico" Relationship="Model.FK__MateriaisServico__00000000000000A2" FromRole="MaterialServico" ToRole="Servico" />
+        </EntityType>
+        <EntityType Name="MovimentoCaixa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CaixaId" Type="Int32" Nullable="false" />
+          <Property Name="Tipo" Type="Int32" Nullable="false" />
+          <Property Name="ServicoId" Type="Int32" Nullable="false" />
+          <Property Name="Valor" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="Obs" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="FormaPagamento" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Caixa" Relationship="Model.FK_Mc_CaixaId" FromRole="MovimentoCaixa" ToRole="Caixa" />
+        </EntityType>
+        <EntityType Name="Servico">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Cliente" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Telefone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Data" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Obs" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Finalizado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ItemServico" Relationship="Model.FK__ItemServico__0000000000000036" FromRole="Servico" ToRole="ItemServico" />
+          <NavigationProperty Name="MaterialServico" Relationship="Model.FK__MateriaisServico__00000000000000A2" FromRole="Servico" ToRole="MaterialServico" />
+        </EntityType>
+        <EntityType Name="TipoServico">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Preco" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <NavigationProperty Name="ItemServico" Relationship="Model.FK__ItemServico__000000000000003A" FromRole="TipoServico" ToRole="ItemServico" />
+        </EntityType>
+        <Association Name="FK__EntradaMaterial__000000000000008D">
+          <End Type="Model.Material" Role="Material" Multiplicity="1" />
+          <End Type="Model.EntradaMaterial" Role="EntradaMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EntradaMaterial">
+              <PropertyRef Name="MaterialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ItemServico__0000000000000036">
+          <End Type="Model.Servico" Role="Servico" Multiplicity="1" />
+          <End Type="Model.ItemServico" Role="ItemServico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servico">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ItemServico">
+              <PropertyRef Name="ServicoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ItemServico__000000000000003A">
+          <End Type="Model.TipoServico" Role="TipoServico" Multiplicity="1" />
+          <End Type="Model.ItemServico" Role="ItemServico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoServico">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ItemServico">
+              <PropertyRef Name="TipoServicoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MateriaisServico__00000000000000A6">
+          <End Type="Model.Material" Role="Material" Multiplicity="1" />
+          <End Type="Model.MaterialServico" Role="MaterialServico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MaterialServico">
+              <PropertyRef Name="MaterialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MateriaisServico__00000000000000A2">
+          <End Type="Model.Servico" Role="Servico" Multiplicity="1" />
+          <End Type="Model.MaterialServico" Role="MaterialServico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servico">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MaterialServico">
+              <PropertyRef Name="ServicoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mc_CaixaId">
+          <End Type="Model.Caixa" Role="Caixa" Multiplicity="1" />
+          <End Type="Model.MovimentoCaixa" Role="MovimentoCaixa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Caixa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MovimentoCaixa">
+              <PropertyRef Name="CaixaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="CutelariaRetiroEntities">
+          <EntitySetMapping Name="Caixa">
+            <EntityTypeMapping TypeName="Model.Caixa">
+              <MappingFragment StoreEntitySet="Caixa">
+                <ScalarProperty Name="Obs" ColumnName="Obs" />
+                <ScalarProperty Name="Aberto" ColumnName="Aberto" />
+                <ScalarProperty Name="DataFechamento" ColumnName="DataFechamento" />
+                <ScalarProperty Name="DataAbertura" ColumnName="DataAbertura" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EntradaMaterial">
+            <EntityTypeMapping TypeName="Model.EntradaMaterial">
+              <MappingFragment StoreEntitySet="EntradaMaterial">
+                <ScalarProperty Name="Lote" ColumnName="Lote" />
+                <ScalarProperty Name="Obs" ColumnName="Obs" />
+                <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="MaterialId" ColumnName="MaterialId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemServico">
+            <EntityTypeMapping TypeName="Model.ItemServico">
+              <MappingFragment StoreEntitySet="ItemServico">
+                <ScalarProperty Name="Observacoes" ColumnName="Observacoes" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="ValorUnit" ColumnName="ValorUnit" />
+                <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+                <ScalarProperty Name="TipoServicoId" ColumnName="TipoServicoId" />
+                <ScalarProperty Name="ServicoId" ColumnName="ServicoId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Material">
+            <EntityTypeMapping TypeName="Model.Material">
+              <MappingFragment StoreEntitySet="Material">
+                <ScalarProperty Name="Estoque" ColumnName="Estoque" />
+                <ScalarProperty Name="Preco" ColumnName="Preco" />
+                <ScalarProperty Name="Inativo" ColumnName="Inativo" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaterialServico">
+            <EntityTypeMapping TypeName="Model.MaterialServico">
+              <MappingFragment StoreEntitySet="MaterialServico">
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Preco" ColumnName="Preco" />
+                <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+                <ScalarProperty Name="MaterialId" ColumnName="MaterialId" />
+                <ScalarProperty Name="ServicoId" ColumnName="ServicoId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MovimentoCaixa">
+            <EntityTypeMapping TypeName="Model.MovimentoCaixa">
+              <MappingFragment StoreEntitySet="MovimentoCaixa">
+                <ScalarProperty Name="FormaPagamento" ColumnName="FormaPagamento" />
+                <ScalarProperty Name="Obs" ColumnName="Obs" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="ServicoId" ColumnName="ServicoId" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="CaixaId" ColumnName="CaixaId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Servico">
+            <EntityTypeMapping TypeName="Model.Servico">
+              <MappingFragment StoreEntitySet="Servico">
+                <ScalarProperty Name="Finalizado" ColumnName="Finalizado" />
+                <ScalarProperty Name="Obs" ColumnName="Obs" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+                <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoServico">
+            <EntityTypeMapping TypeName="Model.TipoServico">
+              <MappingFragment StoreEntitySet="TipoServico">
+                <ScalarProperty Name="Preco" ColumnName="Preco" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

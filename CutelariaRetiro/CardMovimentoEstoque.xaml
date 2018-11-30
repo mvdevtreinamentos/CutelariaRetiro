@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="CutelariaRetiro.CardMovimentoEstoque"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CutelariaRetiro"
+             mc:Ignorable="d" 
+             Background="White" Height="46.001" d:DesignWidth="246">
+    <Grid>
+        <Label x:Name="lbTipo" FontWeight="Bold" Content="ENTRADA" HorizontalAlignment="Left" Margin="10,2,0,0" VerticalAlignment="Top" Width="102" Padding="0"/>
+        <Border BorderBrush="#FF666666" BorderThickness="1" Margin="10,0,0,0" Height="1" VerticalAlignment="Bottom"/>
+        <Label x:Name="lbData" Content="10/11/2018" HorizontalAlignment="Left" Margin="10,18,0,0" VerticalAlignment="Top" Width="79" Padding="0"/>
+        <ComboBox x:Name="comboBox" SelectedIndex="0" HorizontalAlignment="Right" Margin="0,0,6,5" VerticalAlignment="Bottom" Width="124" Height="20" FontSize="10">
+            <ComboBox.Items>
+                <ComboBoxItem Content="Opções" />
+                <ComboBoxItem Content="Apagar" />
+                <ComboBoxItem Content="Exportar" />
+                <ComboBoxItem Content="Ver detalhes" />
+            </ComboBox.Items>
+        </ComboBox>
+        <Label x:Name="lbQuant" HorizontalContentAlignment="Right" Content="1 UN" HorizontalAlignment="Right" Margin="0,2,6,0" VerticalAlignment="Top" Width="102" Padding="0"/>
+
+    </Grid>
+</UserControl>

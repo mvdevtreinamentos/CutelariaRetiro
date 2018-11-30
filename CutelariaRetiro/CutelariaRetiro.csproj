@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{86B9866B-32AD-412B-8DB4-2F617F1BC987}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CutelariaRetiro</RootNamespace>
+    <AssemblyName>CutelariaRetiro</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AlterarEstoque.xaml.cs">
+      <DependentUpon>AlterarEstoque.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CardMovimentoEstoque.xaml.cs">
+      <DependentUpon>CardMovimentoEstoque.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EntradaEstoque.xaml.cs">
+      <DependentUpon>EntradaEstoque.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EntradaUnicaEstoque.xaml.cs">
+      <DependentUpon>EntradaUnicaEstoque.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FecharCaixa.xaml.cs">
+      <DependentUpon>FecharCaixa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GerenciaEstoque.xaml.cs">
+      <DependentUpon>GerenciaEstoque.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HistoricoCaixa.xaml.cs">
+      <DependentUpon>HistoricoCaixa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HistoricoServico.xaml.cs">
+      <DependentUpon>HistoricoServico.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MaterialExt.cs" />
+    <Compile Include="Model\MovimentoEstoque.cs" />
+    <Compile Include="RetiradaCaixa.xaml.cs">
+      <DependentUpon>RetiradaCaixa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SelecionarProdutosPreEntrada.xaml.cs">
+      <DependentUpon>SelecionarProdutosPreEntrada.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AbrirCaixa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AlterarEstoque.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CadMateriais.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CadServico.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CadTipoServico.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CardMovimentoEstoque.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CardServico.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EntradaEstoque.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EntradaUnicaEstoque.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FecharCaixa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GerenciaEstoque.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GerenciarTiposServico.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HistoricoCaixa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HistoricoServico.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="IncluirItemServico.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="IncluirMaterialServico.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="AbrirCaixa.xaml.cs">
+      <DependentUpon>AbrirCaixa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BLL\CaixaBLL.cs" />
+    <Compile Include="BLL\MaterialBLL.cs" />
+    <Compile Include="BLL\MovimentoCaixaBLL.cs" />
+    <Compile Include="BLL\ServicoBLL.cs" />
+    <Compile Include="BLL\TipoServicoBLL.cs" />
+    <Compile Include="CadMateriais.xaml.cs">
+      <DependentUpon>CadMateriais.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CadServico.xaml.cs">
+      <DependentUpon>CadServico.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CadTipoServico.xaml.cs">
+      <DependentUpon>CadTipoServico.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CardServico.xaml.cs">
+      <DependentUpon>CardServico.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\CaixaDAL.cs" />
+    <Compile Include="DAL\MaterialDAL.cs" />
+    <Compile Include="DAL\MovimentoCaixaDAL.cs" />
+    <Compile Include="DAL\RepositoryImpl.cs" />
+    <Compile Include="DAL\ServicoDAL.cs" />
+    <Compile Include="DAL\TipoServicoDAL.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="GerenciarTiposServico.xaml.cs">
+      <DependentUpon>GerenciarTiposServico.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="IncluirItemServico.xaml.cs">
+      <DependentUpon>IncluirItemServico.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="IncluirMaterialServico.xaml.cs">
+      <DependentUpon>IncluirMaterialServico.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="PagamentoAdiantado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RetiradaCaixa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SelecionarProdutosPreEntrada.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\Caixa.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CaixaExt.cs" />
+    <Compile Include="Model\DataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EntradaMaterial.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FormaPagamento.cs" />
+    <Compile Include="Model\ItemServico.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Material.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MaterialServico.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MovimentoCaixa.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Servico.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ServicoExt.cs" />
+    <Compile Include="Model\TipoMovCaixa.cs" />
+    <Compile Include="Model\TipoServico.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PagamentoAdiantado.xaml.cs">
+      <DependentUpon>PagamentoAdiantado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="Model\DataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\DataModel.edmx.diagram">
+      <DependentUpon>DataModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="favicon.ico" />
+    <Resource Include="Image1.png" />
+    <Content Include="LEIA-ME.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Model\DataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataModel.edmx</DependentUpon>
+      <LastGenOutput>DataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\DataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataModel.edmx</DependentUpon>
+      <LastGenOutput>DataModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

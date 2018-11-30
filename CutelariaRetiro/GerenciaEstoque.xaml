@@ -1,0 +1,75 @@
+﻿<Window x:Class="CutelariaRetiro.GerenciaEstoque"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CutelariaRetiro"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Title="Gerenciador de Estoque" Height="581.573" Width="1024.184" MaxWidth="1024.184">
+    <Grid>
+        <Label x:Name="label" Content="Movimentações do estoque" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe WP Semibold" Width="270"/>
+        <TextBox x:Name="txPesquisa" TextChanged="txPesquisa_TextChanged" HorizontalAlignment="Left" Height="23" Margin="10,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="231"/>
+        <Label x:Name="label1" Content="Pesquisar material" HorizontalAlignment="Left" Margin="10,54,0,0" VerticalAlignment="Top" Width="108"/>
+        <ListBox x:Name="listMateriais" SelectionChanged="listMateriais_SelectionChanged" HorizontalAlignment="Left" Margin="0,108,0,0" Width="246" BorderBrush="White"/>
+        <Border BorderBrush="#FF6E6E6E" BorderThickness="1" Height="2" Margin="0,47,0,0" VerticalAlignment="Top"/>
+        <Border BorderBrush="#FF6E6E6E" BorderThickness="1" Margin="246,49,0,0" HorizontalAlignment="Left" Width="1"/>
+        <Grid HorizontalAlignment="Left" Height="28" Margin="247,49,0,0" VerticalAlignment="Top" Width="280" Background="#FFEAEAEA">
+            <Label x:Name="label1_Copy" Content="Movimentação" VerticalAlignment="Top" HorizontalContentAlignment="Center" Margin="0,0,64,0"/>
+            <Button x:Name="btFiltro" Click="btFiltro_Click" Style="{StaticResource btNormal}" Content="Filtro" HorizontalAlignment="Right" Margin="0,3,10,5" Width="49"/>
+        </Grid>
+        <Grid x:Name="gridDetalhes" Margin="528,49,0,0">
+            <Label x:Name="label_Copy" Content="Detalhes" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe WP Semibold" Width="270"/>
+            <Label x:Name="label3" Content="Material:" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="lbNomeMaterial" Content="Label" Margin="10,75,10,0" VerticalAlignment="Top" FontFamily="Segoe UI Semibold" FontSize="15"/>
+            <Label x:Name="label3_Copy6" Content="Média de venda diária:" HorizontalAlignment="Left" Margin="10,260,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.478,0.615" Width="135"/>
+            <Label x:Name="lbMediaVendaDiaria" Content="0 UN" HorizontalAlignment="Left" Margin="154,260,0,0" VerticalAlignment="Top" Width="85"/>
+            <Ellipse Fill="#FFE0FFE7" HorizontalAlignment="Left" Height="99" Margin="57,120,0,0" Stroke="#FF858585" VerticalAlignment="Top" Width="102"/>
+            <Label x:Name="label5" Content="Entradas" HorizontalAlignment="Left" Margin="82,131,0,0" VerticalAlignment="Top" Foreground="#FF006C9E" FontSize="13" FontFamily="Segoe UI Semibold" Padding="0"/>
+            <Label x:Name="lbTotalEntradas" Content="10" HorizontalAlignment="Left" Margin="72,151,0,0" VerticalAlignment="Top" Foreground="#FF006C9E" FontSize="20" FontFamily="Segoe UI Semibold" Height="26" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="73" Padding="0"/>
+            <Ellipse Fill="#FFFFE0E0" HorizontalAlignment="Left" Height="99" Margin="188,120,0,0" Stroke="#FF858585" VerticalAlignment="Top" Width="102"/>
+            <Label x:Name="label5_Copy1" Content="Saídas" HorizontalAlignment="Left" Margin="221,131,0,0" VerticalAlignment="Top" Foreground="#FF9F40FF" FontSize="13" FontFamily="Segoe UI Semibold" Padding="0"/>
+            <Label x:Name="lbTotalSaidas" Content="10" HorizontalAlignment="Left" Margin="204,151,0,0" VerticalAlignment="Top" Foreground="#FF9F40FF" FontSize="20" FontFamily="Segoe UI Semibold" Height="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="72" Padding="0"/>
+            <Ellipse Fill="#FFFFF8B5" HorizontalAlignment="Left" Height="99" Margin="315,120,0,0" Stroke="#FF858585" VerticalAlignment="Top" Width="102"/>
+            <Label x:Name="label5_Copy3" Content="Estoque" HorizontalAlignment="Left" Margin="345,131,0,0" VerticalAlignment="Top" Foreground="#FF9E4F00" FontSize="13" FontFamily="Segoe UI Semibold" Padding="0"/>
+            <Label x:Name="lbEstoqueAtual" Content="3585" HorizontalAlignment="Left" Margin="323,150,0,0" VerticalAlignment="Top" Foreground="#FF9E4F00" FontSize="30" FontFamily="Segoe UI Semibold" Height="44" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="86" Padding="0"/>
+            <Border x:Name="bannerDiasRestantes" BorderBrush="#FF006C67" BorderThickness="0,1" Height="34" Margin="0,298,0,0" VerticalAlignment="Top" Background="#FFCAE7FF">
+                <Label x:Name="lbDiasRestantes" Content="Restam 2 dias de estoque para este material" RenderTransformOrigin="0.478,0.615" FontFamily="Segoe UI Semibold" FontSize="13" Margin="10,3,10,2" HorizontalContentAlignment="Center"/>
+            </Border>
+            <Button x:Name="btAbrirCadastro" Style="{StaticResource btNormal}" Content="Abrir Cadastro do Material" Margin="10,341,10,0" VerticalAlignment="Top" Height="30" FontFamily="Segoe UI Semibold" Click="btAbrirCadastro_Click"/>
+            <Button x:Name="btEntradaUnicaMaterial" Style="{StaticResource btNormal}" Content="Nova Entrada de Estoque" Margin="10,376,10,0" VerticalAlignment="Top" Height="30" FontFamily="Segoe UI Semibold" Click="btEntradaUnicaMaterial_Click"/>
+            <Button x:Name="btAbrirExcel" Style="{StaticResource btNormal}" Content="Abrir no Excel" Margin="10,446,10,0" VerticalAlignment="Top" Height="30" FontFamily="Segoe UI Semibold"/>
+            <Button x:Name="btAlterarEstoque" Style="{StaticResource btNormal}" Content="Alterar Estoque" Margin="10,411,10,0" VerticalAlignment="Top" RenderTransformOrigin="0.581,0.6" Height="30" FontFamily="Segoe UI Semibold" Click="btAlterarEstoque_Click"/>
+            <Border BorderBrush="#FF006C9E" BorderThickness="1" HorizontalAlignment="Left" Height="1" Margin="72,179,0,0" VerticalAlignment="Top" Width="73"/>
+            <Label x:Name="lbTotalQuantEntradas" Content="1240 UN" HorizontalAlignment="Left" Margin="80,180,0,0" VerticalAlignment="Top" Foreground="#FF006C9E" FontSize="15" FontFamily="Segoe UI Semibold" Height="26" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="58" Padding="0"/>
+            <Border BorderBrush="#FF9F40FF" BorderThickness="1" HorizontalAlignment="Left" Height="1" Margin="204,179,0,0" VerticalAlignment="Top" Width="72"/>
+            <Label x:Name="lbTotalQuantSaidas" Content="1254 UN" HorizontalAlignment="Left" Margin="212,182,0,0" VerticalAlignment="Top" Foreground="#FF9F40FF" FontSize="15" FontFamily="Segoe UI Semibold" Height="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="58" Padding="0"/>
+        </Grid>
+        <Border BorderBrush="#FF6E6E6E" BorderThickness="1" Margin="527,47,0,0" HorizontalAlignment="Left" Width="1"/>
+        <ScrollViewer HorizontalAlignment="Left" Margin="247,77,0,0" Width="280">
+            <StackPanel x:Name="spMovimentos" />
+        </ScrollViewer>
+        <Grid x:Name="gridFiltro" Visibility="Hidden" HorizontalAlignment="Left" Height="150" Margin="247,77,0,0" VerticalAlignment="Top" Width="280" Background="#FFF3F3F3">
+            <Label x:Name="label2" Content="Filtrar movimentações" HorizontalAlignment="Left" VerticalAlignment="Top" Width="235"/>
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,32,0,0" TextWrapping="Wrap" Text="Data Inicial" VerticalAlignment="Top" RenderTransformOrigin="0.454,0.479"/>
+            <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="10,60,0,0" TextWrapping="Wrap" Text="Data Inicial" VerticalAlignment="Top" RenderTransformOrigin="0.454,0.479"/>
+            <DatePicker x:Name="txDataInicio" HorizontalAlignment="Left" Margin="83,27,0,0" VerticalAlignment="Top"/>
+            <DatePicker x:Name="txDataFim" HorizontalAlignment="Left" Margin="83,56,0,0" VerticalAlignment="Top"/>
+            <Button x:Name="btFiltrar" Style="{StaticResource btConfirm}" Content="Filtrar" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75" Click="btFiltrar_Click"/>
+            <RadioButton x:Name="rdoEntradas" Content="Entradas" HorizontalAlignment="Left" Margin="83,85,0,0" VerticalAlignment="Top"/>
+            <RadioButton x:Name="rdoSaidas" Content="Saídas" HorizontalAlignment="Left" Margin="83,100,0,0" VerticalAlignment="Top"/>
+            <RadioButton x:Name="rdoTudo" IsChecked="True" Content="Tudo" HorizontalAlignment="Left" Margin="83,115,0,0" VerticalAlignment="Top"/>
+            <Border BorderBrush="#FF747474" BorderThickness="1" Height="1" VerticalAlignment="Bottom"/>
+        </Grid>
+        <Button x:Name="btExportarEstoqueExcel" Style="{StaticResource btNormal}" Content="Exportar Estoque para o Excel" HorizontalAlignment="Right" Margin="0,11,10,0" VerticalAlignment="Top" Width="174" Height="24" Click="btExportarEstoqueExcel_Click"/>
+        <Button x:Name="btEntradaEstoque" Style="{StaticResource btNormal}" Content="Entrada de Estoque" HorizontalAlignment="Right" Margin="0,11,189,0" VerticalAlignment="Top" Width="122" Height="24" Click="btEntradaEstoque_Click"/>
+        <Border x:Name="brdOpcoesEntrada" Visibility="Hidden" BorderBrush="#FF686868" BorderThickness="1" HorizontalAlignment="Right" Height="100" Margin="0,35,156,0" VerticalAlignment="Top" Width="155" Background="#FFFDFDFD" CornerRadius="3">
+            <Grid>
+                <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="7,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Selecione a operação"/><Run Text=":"/></TextBlock>
+                <Button x:Name="btExportarPlaniliaEntrada" Style="{StaticResource btNormal}" Content="Exportar planilia" Margin="10,34,10,0" VerticalAlignment="Top" Click="btExportarPlaniliaEntrada_Click"/>
+                <Button x:Name="btImportarPlaniliaEntrada" Click="btImportarPlaniliaEntrada_Click" Style="{StaticResource btNormal}" Content="Importar planilia" Margin="10,59,10,0" VerticalAlignment="Top"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

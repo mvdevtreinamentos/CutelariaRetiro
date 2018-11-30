@@ -1,0 +1,37 @@
+﻿<Window x:Class="CutelariaRetiro.EntradaEstoque"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CutelariaRetiro"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Loaded="Window_Loaded"
+        Title="Entrada de Estoque" Height="600" Width="1020">
+    <Grid>
+        <Label x:Name="label" Content="Entrada de estoque" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe WP Semibold" Width="270"/>
+        <DataGrid x:Name="dataGrid" Margin="10,48,10,179">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Cód." MinWidth="90" Binding="{Binding Codigo}" />
+                <DataGridTextColumn Header="REF." MinWidth="100" Binding="{Binding Ref}"/>
+                <DataGridTextColumn Header="Material" MinWidth="150" Width="*" Binding="{Binding Material}"/>
+                <DataGridTextColumn Header="Preço venda (R$)" MinWidth="100" Binding="{Binding PrecoVenda, StringFormat=N2}" />
+                <DataGridTextColumn Header="Estoque atual" MinWidth="100" Binding="{Binding EstoqueAtual}" />
+                <DataGridTextColumn Header="Quant. Entrada" MinWidth="120" Binding="{Binding QuantEntrada}" />
+                <DataGridTextColumn Header="Média venda" MinWidth="100" Binding="{Binding MediaVenda}"/>
+                <DataGridTextColumn Header="Última entrada" MinWidth="120" Binding="{Binding UltimaEntrada, StringFormat=dd/MM/yyyy}"/>
+                <DataGridTextColumn Header="Última saída" MinWidth="120" Binding="{Binding UltimaSaida  , StringFormat=dd/MM/yyyy}"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btConfirmar" Style="{StaticResource btNormal}" Content="Confirmar Entrada" HorizontalAlignment="Right" Margin="0,18,10,0" VerticalAlignment="Top" Width="114" Click="btConfirmar_Click"/>
+        <Label x:Name="label1" Content="Data da Entrada" HorizontalAlignment="Left" Margin="10,0,0,148" VerticalAlignment="Bottom" Width="97"/>
+        <Label x:Name="label1_Copy" Content="N° Lote Entrada" HorizontalAlignment="Left" Margin="10,0,0,122" VerticalAlignment="Bottom" Width="97"/>
+        <Label x:Name="label1_Copy1" Content="Observações" HorizontalAlignment="Left" Margin="10,0,0,96" VerticalAlignment="Bottom" Width="97"/>
+        <DatePicker x:Name="txData" HorizontalAlignment="Left" Margin="112,0,0,148" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="txLote" HorizontalAlignment="Left" Height="23" Margin="112,0,0,121" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="120"/>
+        <TextBox x:Name="txObs" AcceptsReturn="True" AcceptsTab="True" HorizontalAlignment="Left" Height="106" Margin="112,0,0,10" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="364"/>
+
+    </Grid>
+</Window>

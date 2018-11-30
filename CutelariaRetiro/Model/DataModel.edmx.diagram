@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d1dbff70d22147789bf5ddcdb80f01ab" Name="Diagram1" ZoomLevel="73">
+        <EntityTypeShape EntityType="Model.Caixa" Width="1.5" PointX="0.75" PointY="8.5" />
+        <EntityTypeShape EntityType="Model.EntradaMaterial" Width="1.5" PointX="6" PointY="8.875" />
+        <EntityTypeShape EntityType="Model.ItemServico" Width="1.5" PointX="3" PointY="4.5" />
+        <EntityTypeShape EntityType="Model.Material" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Model.MaterialServico" Width="1.5" PointX="6" PointY="4.625" />
+        <EntityTypeShape EntityType="Model.MovimentoCaixa" Width="1.5" PointX="2.75" PointY="8.5" />
+        <EntityTypeShape EntityType="Model.Servico" Width="1.5" PointX="0.75" PointY="4.625" />
+        <EntityTypeShape EntityType="Model.TipoServico" Width="1.5" PointX="0.75" PointY="2" />
+        <AssociationConnector Association="Model.FK__EntradaMaterial__000000000000008D" />
+        <AssociationConnector Association="Model.FK__ItemServico__0000000000000036" />
+        <AssociationConnector Association="Model.FK__ItemServico__000000000000003A" />
+        <AssociationConnector Association="Model.FK__MateriaisServico__00000000000000A6" />
+        <AssociationConnector Association="Model.FK__MateriaisServico__00000000000000A2" />
+        <AssociationConnector Association="Model.FK_Mc_CaixaId" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
