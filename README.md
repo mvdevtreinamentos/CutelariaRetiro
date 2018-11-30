@@ -37,6 +37,7 @@ Os recursos utilizados no programa são:
 --------------------------------------------------------------------------
 
 Instruções de compilação:
+
 	* Possuir instalado o Microsoft .NET Framework v4.5.1
 	* Possuir instalado o Microsoft SQL Server Compact Edition 4.x
 	* Possuir instalado o Microsoft Visual Studio 2015 em diante (Community/Professional/Enterprise)
