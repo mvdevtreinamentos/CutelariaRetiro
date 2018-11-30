@@ -1,7 +1,7 @@
 # CutelariaRetiro
 Software Deskto para controle de Cutelarias que prestam serviço de amolagem de ferramentas e venda de materiais
 
-*** LEIA COM ATENÇÃO E PRESTE ATENÇÃO NA FODA ***
+*** LEIA COM ATENÇÃO ***
 
 Autor: Marcos Vinícius P. Oliveira
 Email: mvdevtreinamentos@gmail.com
@@ -48,7 +48,7 @@ Nesse momento, o programa irá criar o banco de dados em arquivo do SQL CE em
 C:\Cutelaria Retiro\Data\CutelariaRetiro.sdf
 
 Apartir desta primeira compilação, o projeto estará pronto para ser customizado
----------------------------------------------------------------------------
-
+-------------------------------------------------------------------------------
+Download dos binários em https://drive.google.com/drive/u/1/folders/1CYgGnyJH-jErALvxCrsce71FsW6_1sWE
 
 Faça bom proveito! :D
