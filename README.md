@@ -4,7 +4,7 @@ Software Deskto para controle de Cutelarias que prestam serviço de amolagem de 
 *** LEIA COM ATENÇÃO E PRESTE ATENÇÃO NA FODA ***
 
 Autor: Marcos Vinícius P. Oliveira
-Email: marcos8154@gmail.com
+Email: mvdevtreinamentos@gmail.com
 
 Este projeto é uma doação a comunidade, uma ação
 que eu julgo benéfica para os iniciantes em programação
