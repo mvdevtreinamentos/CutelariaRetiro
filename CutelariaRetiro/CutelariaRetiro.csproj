@@ -310,6 +310,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Runtimes\SQL Server CE 4.0.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Resource Include="favicon.ico" />
     <Resource Include="Image1.png" />
     <Content Include="LEIA-ME.txt">
